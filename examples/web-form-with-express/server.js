@@ -14,6 +14,15 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + "/views/index.html")
 })
 
+app.get("/status",  (request, response) => {
+  const status = {
+    'Status': "Running"
+  };
+ 
+ response.send(status);
+});
+
+
 // Create new database. The page ID is set in the environment variables.
 app.post("/databases", async function (request, response) {
   const pageId = process.env.NOTION_PAGE_ID
